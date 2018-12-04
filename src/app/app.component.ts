@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-import { Prototyp1Page } from '../pages/prototyp1/prototyp1';
+import { TamagotchiSpielfigurPage } from '../pages/tamagotchi-spielfigur/tamagotchi-spielfigur';
 import { AnimationMitAufrufebuttonPage } from "../pages/animation-mit-aufrufebutton/animation-mit-aufrufebutton";
 import { TennisfieldPage } from "../pages/tennisfield/tennisfield";
 @Component({
@@ -14,7 +14,7 @@ import { TennisfieldPage } from "../pages/tennisfield/tennisfield";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Prototyp1Page;
+  rootPage: any = TamagotchiSpielfigurPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -25,7 +25,7 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
-      { title: 'Prototyppage', component: Prototyp1Page },
+      { title: 'TamagotchiSpielfigurPage', component: TamagotchiSpielfigurPage },
       { title: 'Tennisfieldpage', component: TennisfieldPage },
       { title: ' AnimationMitAufrufebuttonPage', component:  AnimationMitAufrufebuttonPage}
     ];
@@ -37,6 +37,8 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
+
+
       this.splashScreen.hide();
     });
   }

@@ -12,10 +12,10 @@ import EaselJS = createjs.EaselJS;
 
 @IonicPage()
 @Component({
-  selector: 'page-prototyp1',
-  templateUrl: 'prototyp1.html',
+  selector: 'page-tamagotchi-spielfigur',
+  templateUrl: 'tamagotchi-spielfigur.html',
 })
-export class Prototyp1Page {
+export class TamagotchiSpielfigurPage {
   /*private rightEyePupil;
   private leftEyePupil;
   private leftEye;
@@ -264,23 +264,23 @@ export class Prototyp1Page {
       .lineTo(530,1720)
       .endStroke();
 
-      this.pawright.scaleX = -1;
+    this.pawright.scaleX = -1;
 
     this.pawright.rotation = -30;
 
     this.pawright.x=860;
     this.pawright.y=-360;
-      /*.beginFill('#936037')
-      .setStrokeStyle(20).moveTo(1400,1450)
-      .bezierCurveTo(1150,2000,1750,2200,1550,1500)
-      .setStrokeStyle(15)
-      .moveTo(1450, 1945)
-      .lineTo(1440,1860)
-      .moveTo(1480, 1955)
-      .lineTo(1470,1850)
-      .moveTo(1510, 1955)
-      .lineTo(1500,1845)
-      .endStroke();*/
+    /*.beginFill('#936037')
+    .setStrokeStyle(20).moveTo(1400,1450)
+    .bezierCurveTo(1150,2000,1750,2200,1550,1500)
+    .setStrokeStyle(15)
+    .moveTo(1450, 1945)
+    .lineTo(1440,1860)
+    .moveTo(1480, 1955)
+    .lineTo(1470,1850)
+    .moveTo(1510, 1955)
+    .lineTo(1500,1845)
+    .endStroke();*/
 
     /*this.pawright.x=600;
     this.pawright.y=20;*/
@@ -291,20 +291,26 @@ export class Prototyp1Page {
     this.tennisschlaeger = new createjs.Container();
 
     this.schlagflaeche = new createjs.Shape();
-    this.schlagflaeche.graphics.beginStroke()
-      .beginFill()
-      .setStrokeStyle('#ff0000')
-      .drawEllipse()
+
+
+    var bitmap = new createjs.Bitmap("./assets/img/logo.png");
+    /**this.schlagflaeche.graphics.beginStroke('#000000')
+      .beginBitmapFill(url("test.jpg"), "no-repeat")
+      .setStrokeStyle(25)
+      .drawEllipse(-1290, 1160, 400, 500)
+      .endStroke()
+      .endFill();
+    this.schlagflaeche.rotation = -40;**/
+
+    this.schlaegergriff = new createjs.Shape();
+    this.schlaegergriff.graphics.beginStroke('#000000')
+      .beginFill('#000000')
+      .setStrokeStyle(25)
+      .drawRoundRectComplex(-1150, 720, 80,430, 30, 30,0,0)
       .endStroke()
       .endFill();
 
-    this.schlaegergriff = new createjs.Shape();
-    this.schlaegergriff.graphics.beginStroke()
-      .beginFill()
-      .setStrokeStyle()
-      .drawRoundRectComplex(360, -60, 150,600, 20, 20,0,0)
-      .endStroke()
-      .endFill();
+    this.schlaegergriff.rotation = -40;
 
 
     this.tennisschlaeger.addChild(this.schlagflaeche, this.schlaegergriff);
@@ -342,13 +348,13 @@ export class Prototyp1Page {
     this.tennisRacket.rotation = 180;
     this.tennisRacket.regY = 0;
     this.tennisRacket.y = this.tennisRacket.regY + this.rightArm.y;
-
+*/
     this.armsAndTR = new createjs.Container();
     this.armsAndTR.y = this.corpus.y;
-    this.armsAndTR.addChild(this.rightArm, this.tennisRacket, this.leftArm);
-  */
+    this.armsAndTR.addChild(this.paws, this.tennisschlaeger);
 
-    body.addChild(this.paws, this.corpus,this.ears, this.nose, this.eyes, this.tennisschlaeger);
+
+    body.addChild(this.paws, this.corpus,this.ears, this.nose, this.eyes, bitmap);
     body.x = 500;
     body.y = 500;
     //body.scaleX = body.scaleY = 1;
@@ -366,18 +372,17 @@ export class Prototyp1Page {
 
   schlagAnimation(){
 
-    var regArmsAndTR = this.corpus.localToLocal(0,0, this.paws);
-    this.paws.regX = regArmsAndTR.x;
-    this.paws.regY = regArmsAndTR.y;
-    this.paws.x = regArmsAndTR.x;
-    this.paws.y = regArmsAndTR.y + this.paws.y;
+    var regArmsAndTR = this.corpus.localToLocal(0,0, this.armsAndTR);
+    this.armsAndTR.regX = regArmsAndTR.x;
+    this.armsAndTR.regY = regArmsAndTR.y;
+    this.armsAndTR.x = regArmsAndTR.x;
+    this.armsAndTR.y = regArmsAndTR.y + this.armsAndTR.y;
 
 
-    createjs.Tween.get(this.paws)
+    createjs.Tween.get(this.armsAndTR)
       .to({rotation: 50}, 500)
-      /*
       .to({rotation: -20}, 100, createjs.Ease.quartOut)
-      .to({rotation: 0}, 200);*/
+      .to({rotation: 0}, 200);
   }
 
   /*ionViewDidEnter(){
@@ -490,3 +495,4 @@ export class Prototyp1Page {
     createjs.Ticker.addEventListener("tick", this.stage);
   }*/
 }
+

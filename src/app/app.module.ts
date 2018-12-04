@@ -5,7 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-import { Prototyp1Page } from '../pages/prototyp1/prototyp1';
+import { TamagotchiSpielfigurPage } from '../pages/tamagotchi-spielfigur/tamagotchi-spielfigur';
 import { AnimationMitAufrufebuttonPage } from '../pages/animation-mit-aufrufebutton/animation-mit-aufrufebutton';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -18,7 +18,7 @@ import {TennisfieldPage} from "../pages/tennisfield/tennisfield";
     MyApp,
     HomePage,
     ListPage,
-    Prototyp1Page,
+    TamagotchiSpielfigurPage,
     TennisfieldPage,
     AnimationMitAufrufebuttonPage
   ],
@@ -31,7 +31,7 @@ import {TennisfieldPage} from "../pages/tennisfield/tennisfield";
     MyApp,
     HomePage,
     ListPage,
-    Prototyp1Page,
+    TamagotchiSpielfigurPage,
     TennisfieldPage,
     AnimationMitAufrufebuttonPage
   ],
