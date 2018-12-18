@@ -6,11 +6,14 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { TamagotchiSpielfigurPage } from '../pages/tamagotchi-spielfigur/tamagotchi-spielfigur';
+import {TamagotchiSeitansichtPage} from "../pages/tamagotchi-seitansicht/tamagotchi-seitansicht";
 import { AnimationMitAufrufebuttonPage } from '../pages/animation-mit-aufrufebutton/animation-mit-aufrufebutton';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {TennisfieldPage} from "../pages/tennisfield/tennisfield";
+
+
 //import {TennisballPage} from "../pages/tennisball/tennisball";
 
 @NgModule({
@@ -20,6 +23,7 @@ import {TennisfieldPage} from "../pages/tennisfield/tennisfield";
     ListPage,
     TamagotchiSpielfigurPage,
     TennisfieldPage,
+    TamagotchiSeitansichtPage,
     AnimationMitAufrufebuttonPage
   ],
   imports: [
@@ -33,6 +37,7 @@ import {TennisfieldPage} from "../pages/tennisfield/tennisfield";
     ListPage,
     TamagotchiSpielfigurPage,
     TennisfieldPage,
+    TamagotchiSeitansichtPage,
     AnimationMitAufrufebuttonPage
   ],
   providers: [

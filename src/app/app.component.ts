@@ -8,13 +8,15 @@ import { ListPage } from '../pages/list/list';
 import { TamagotchiSpielfigurPage } from '../pages/tamagotchi-spielfigur/tamagotchi-spielfigur';
 import { AnimationMitAufrufebuttonPage } from "../pages/animation-mit-aufrufebutton/animation-mit-aufrufebutton";
 import { TennisfieldPage } from "../pages/tennisfield/tennisfield";
+import { TamagotchiSeitansichtPage} from "../pages/tamagotchi-seitansicht/tamagotchi-seitansicht";
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = TamagotchiSpielfigurPage;
+  rootPage: any = TamagotchiSeitansichtPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -27,7 +29,8 @@ export class MyApp {
       { title: 'List', component: ListPage },
       { title: 'TamagotchiSpielfigurPage', component: TamagotchiSpielfigurPage },
       { title: 'Tennisfieldpage', component: TennisfieldPage },
-      { title: ' AnimationMitAufrufebuttonPage', component:  AnimationMitAufrufebuttonPage}
+      { title: ' AnimationMitAufrufebuttonPage', component:  AnimationMitAufrufebuttonPage },
+      { title: 'TamagotchiSeitansichtPage', component: TamagotchiSeitansichtPage }
     ];
 
   }
