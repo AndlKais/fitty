@@ -35,6 +35,9 @@ export class TamagotchiSeitansichtPage {
   private feet;
   private arm;
   private koerper;
+  private koerper_oval;
+  private white_rect1;
+  private white_rect2;
   coords;
 
   private stage;
@@ -66,91 +69,102 @@ export class TamagotchiSeitansichtPage {
     this.nose.graphics.setStrokeStyle(10)
       .beginStroke("#000000")
       .beginFill("#000000")
-      .drawEllipse(0,0, 70, 40)
+      .drawEllipse(270,-195, 70, 40)
       .endFill()
       .endStroke();
+
+    this.nose.rotation = 60;
 
     this.ears = new createjs.Container();
 
     this.innerleftEar = new createjs.Shape();
-    this.innerleftEar.graphics.setStrokeStyle(10)
-      .beginStroke('white')
-      .beginFill('#ffffff')
-      .arc(0, 0, 150, 0, ((Math.PI * 2) / 360) * 180, true)
-      .endFill()
-      .endStroke();
 
-    this.innerrightEar = new createjs.Shape();
-    this.innerrightEar.graphics.setStrokeStyle(10)
-      .beginStroke('white')
-      .beginFill('#ffffff')
-      .arc(0, 0, 150, 0, ((Math.PI * 2) / 360) * 180, true)
-      .endFill()
+    this.innerleftEar.x=20;
+    this.innerleftEar.y =500;
+    this.innerleftEar.graphics
+      .beginFill("white")
+      .moveTo(-300, -220)
+      .bezierCurveTo(-450, -200, -450, -250, -300, -290)
       .endStroke();
+    ;
+
+    this.innerleftEar.rotation = 50;
 
     this.outerleftEar = new createjs.Shape();
-    this.outerleftEar.graphics.setStrokeStyle(10)
-      .beginStroke('white')
-      .beginFill('#ffffff')
-      .arc(0, 0, 150, 0, ((Math.PI * 2) / 360) * 180, true)
-      .endFill()
+
+    this.outerleftEar.x=20;
+    this.outerleftEar.y =500;
+    this.outerleftEar.graphics.beginStroke("black").beginFill('#936037')
+      .setStrokeStyle(10)
+      .moveTo(-300, -190)
+      .bezierCurveTo(-500, -200, -500, -250, -300, -320)
       .endStroke();
 
-    this.outerrightEar = new createjs.Shape();
-    this.outerrightEar.graphics.setStrokeStyle(10)
-      .beginStroke('white')
-      .beginFill('#ffffff')
-      .arc(0, 0, 150, 0, ((Math.PI * 2) / 360) * 180, true)
+    this.outerleftEar.rotation = 50;
+
+    this.innerrightEar = new createjs.Shape();
+
+    this.innerrightEar.x=-20;
+    this.innerrightEar.y =540;
+    this.innerrightEar.graphics
+      .beginFill("white")
+      .moveTo(-300, -220)
+      .bezierCurveTo(-450, -200, -450, -250, -300, -290)
       .endFill()
       .endStroke();
+    ;
+
+    this.innerrightEar.rotation = 50;
+
+    this.outerrightEar = new createjs.Shape();
+
+    this.outerrightEar.x=-20;
+    this.outerrightEar.y =540;
+    this.outerrightEar.graphics.beginStroke("black").beginFill('#936037')
+      .setStrokeStyle(10)
+      .moveTo(-300, -190)
+      .bezierCurveTo(-500, -200, -500, -250, -300, -320)
+      .endStroke();
+
+    this.outerrightEar.rotation = 50;
+
+
+    this.ears.addChild(this.outerleftEar, this.innerleftEar, this.outerrightEar, this.innerrightEar);
 
     this.righteye = new createjs.Container();
 
     this.eye = new createjs.Shape();
     this.eye.graphics.setStrokeStyle(10)
-      .beginStroke('white')
-      .beginFill('#ffffff')
-      .quadraticCurveTo()
+      .beginStroke('black')
+      .beginFill('white')
+      .moveTo(270,-175)
+      .quadraticCurveTo(260, -30,170,-140)
       .endFill()
       .endStroke();
+
+    this.eye.rotation = 60;
 
     this.rightEyeBall = new createjs.Shape();
     this.rightEyeBall.graphics.setStrokeStyle(10)
       .beginStroke('white')
-      .beginFill('#ffffff')
-      .drawEllipse()
+      .beginFill('black')
+      .moveTo(270,-175)
+      .bezierCurveTo(260, -30)
       .endFill()
       .endStroke();
 
     this.righteye.addChild(this.eye,this.rightEyeBall)
 
-    this.leftEar = new createjs.Shape();
-    this.leftEar.graphics.setStrokeStyle(10)
-      .beginStroke('black')
-      .beginFill('#936037')
-      .drawEllipse()
-      .endFill()
-      .endStroke();
-
-    this.rightEar = new createjs.Shape();
-    this.rightEar.graphics.setStrokeStyle(10)
-      .beginStroke('black')
-      .beginFill('#936037')
-      .drawEllipse()
-      .endFill()
-      .endStroke();
-
-    this.ears.addChild(this.leftEar, this.rightEar, this.innerrightEar, this.innerleftEar);
-
     this.head.addChild(this.head_circle, this.eye, this.nose, this.mouth);
 
     this.koerper = new createjs.Container();
 
-    this.koerper_oval
-    this.koerper.graphics.setStrokeStyle(10)
+    this.koerper_oval = new createjs.Shape();
+
+    this.koerper_oval.graphics.setStrokeStyle(10)
       .beginStroke('black')
       .beginFill('#936037')
-      .drawEllipse()
+      .drawEllipse(110,330,820 ,420)
       .endFill()
       .endStroke();
 
@@ -158,9 +172,13 @@ export class TamagotchiSeitansichtPage {
     this.arm.graphics.setStrokeStyle(10)
       .beginStroke('black')
       .beginFill('#936037')
-      .bezierCurveTo()
+      .moveTo(410,370)
+      //.bezierCurveTo(360,150,480,150,500,470)
+      .drawEllipse(410,370,90,-300)
       .endFill()
       .endStroke();
+
+    this.arm.rotation = 15;
 
     this.feet = new createjs.Container();
 
@@ -172,6 +190,8 @@ export class TamagotchiSeitansichtPage {
       .endFill()
       .endStroke();
 
+    this.leftfoot.rotation = 90;
+
     this.rightfoot = new createjs.Shape();
     this.rightfoot.graphics.setStrokeStyle(10)
       .beginStroke('black')
@@ -180,9 +200,30 @@ export class TamagotchiSeitansichtPage {
       .endFill()
       .endStroke();
 
-    this.feet.addChild(this.leftfoot, this.rightfoot)
+    this.leftfoot.rotation = 90;
 
-    body.addChild(this.head, this.ears, this.feet, this.arm);
+    this.white_rect1 = new createjs.Shape();
+
+    this.white_rect1.graphics.setStrokeStyle(10)
+      .beginStroke('black')
+      .beginFill('white')
+      .drawRect(218,680,599,600)
+      .endStroke()
+      .endFill();
+
+    this.white_rect2 = new createjs.Shape();
+
+    this.white_rect2.graphics.beginFill('white')
+      .drawRect(180,685,900,600)
+      .endFill();
+
+
+
+    this.feet.addChild(this.leftfoot, this.rightfoot);
+
+    this.koerper.addChild(this.koerper_oval, this.feet);
+
+    body.addChild(this.koerper,this.righteye,this.head, this.ears, this.arm, this.white_rect1, this.white_rect2);
     body.x = 500;
     body.y = 500;
     this.stage.addChild(body);
