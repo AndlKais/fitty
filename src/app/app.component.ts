@@ -17,7 +17,7 @@ import { TamagotchiSeitenansichtLaufenPage} from "../pages/tamagotchi-seitenansi
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = TamagotchiSeitansichtPage;
+  rootPage: any = TamagotchiSeitenansichtLaufenPage;
 
   pages: Array<{title: string, component: any}>;
 

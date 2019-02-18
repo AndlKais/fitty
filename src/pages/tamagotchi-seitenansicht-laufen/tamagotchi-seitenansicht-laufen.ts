@@ -57,13 +57,12 @@ export class TamagotchiSeitenansichtLaufenPage {
 
     this.bauch = new createjs.Shape();
 
-    this.bauch.graphics.setStrokeStyle()
-      .beginStroke()
-      .beginFill()
-      .moveTo(0,0)
-      .drawRoundRectComplex(330, 1118, 850, 900, 0, 0, 20, 20)
+    this.bauch.graphics.setStrokeStyle(10)
+      .beginStroke("black")
+      .beginFill("#936037")
+      .drawRoundRectComplex(330, 418, 750, 800, 20, 20, 20, 20)
       .endFill()
-      .endStroke()
+      .endStroke();
 
 
     this.head_circle = new createjs.Shape();
@@ -71,10 +70,11 @@ export class TamagotchiSeitenansichtLaufenPage {
     this.head_circle.graphics.setStrokeStyle(10)
       .beginStroke("black")
       .beginFill("#936037")
-      .drawEllipse(0, 0, 400, 400)
+      .drawEllipse(260, -130, 900, 700)
       .endFill()
       .endStroke();
 
+    this.mouth = new createjs.Shape();
 
     this.mouth.graphics.setStrokeStyle(10)
       .beginStroke("black")
@@ -104,25 +104,65 @@ export class TamagotchiSeitenansichtLaufenPage {
       .endStroke()
       .endFill();
 
+
+    this.innerrightEar.graphics
+
+    this.outerrightEar.graphics
+
+    this.nose = new createjs.Shape();
+
+    this.nose.graphics.setStrokeStyle(10)
+      .beginStroke("black")
+      .beginFill("black")
+      .drawEllipse(1500,-130, 40, 90)
+      .endFill()
+      .endStroke();
+
     this.feet = new createjs.Container();
 
+    this.rightFoot = new createjs.Shape();
+
+    this.rightFoot.x =910;
+    this.rightFoot.y =1118;
     this.rightFoot.graphics.setStrokeStyle(10)
       .beginStroke("black")
       .beginFill("#936037")
-      .moveTo()
-      .bezierCurveTo()
+      .moveTo(0, 0)
+      .bezierCurveTo(-50, 400, 450, 400, 190, 50)
+      .setStrokeStyle(15)
+      .moveTo(200, 300)
+      .lineTo(160, 250)
+      .moveTo(230, 300)
+      .lineTo(180, 235)
+      .moveTo(250, 270)
+      .lineTo(205, 220)
+      .endStroke()
       .endFill()
       .endStroke();
 
+    this.leftFoot = new createjs.Shape();
+
+    this.leftFoot.x =260;
+    this.leftFoot.y =1118;
     this.leftFoot.graphics.setStrokeStyle(10)
       .beginStroke("black")
       .beginFill("#936037")
-      .moveTo()
-      .bezierCurveTo()
-      .endFill()
+      .moveTo(0, 0)
+      .bezierCurveTo(-250, 200, 50, 400, 150, 100)
+      .setStrokeStyle(15)
+      .moveTo(-90, 200)
+      .lineTo(-45, 145)
+      .moveTo(-70, 220)
+      .lineTo(-20, 165)
+      .moveTo(-45, 240)
+      .lineTo(5, 180)
       .endStroke();
 
-    body.addChild(this.koerper, this.feet, this.head, this.ears);
+    this.koerper.addChild(this.bauch);
+    this.feet.addChild(this.rightFoot, this.leftFoot);
+    this.head.addChild(this.head_circle, this.nose);
+
+    body.addChild(this.feet,this.koerper , this.head, this.ears);
     body.x = 500;
     body.y = 500;
     this.stage.addChild(body);
