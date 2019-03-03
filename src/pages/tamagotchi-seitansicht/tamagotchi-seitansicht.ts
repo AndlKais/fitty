@@ -21,8 +21,6 @@ export class TamagotchiSeitansichtPage {
   private head_circle;
   private outerleftEar;
   private outerrightEar;
-  private rightEar;
-  private leftEar;
   private innerleftEar;
   private innerrightEar;
   private ears;
@@ -101,8 +99,7 @@ export class TamagotchiSeitansichtPage {
       .beginFill("white")
       .moveTo(-300, -220)
       .bezierCurveTo(-450, -200, -450, -250, -300, -290)
-      .endStroke();
-    ;
+      .endStroke();;
 
     this.innerleftEar.rotation = 50;
 
